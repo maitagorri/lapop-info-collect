@@ -2,6 +2,8 @@
   <body>
     
     <script>
+      
+      //load SDK
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '535317676900641',
@@ -21,6 +23,12 @@
          js.src = "https://connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+      
+      //check if user is already logged in
+      var resp = FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+      });
+      document.write(resp);
     </script>
   </body>
   
